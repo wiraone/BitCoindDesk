@@ -122,7 +122,7 @@ class MainPresenter {
                 chartList.append(chart)
             }
         }
-        return chartList
+        return chartList.suffix(Configuration.TableView.maximumRow)
     }
     
     /**

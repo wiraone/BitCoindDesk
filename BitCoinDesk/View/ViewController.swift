@@ -275,7 +275,7 @@ extension ViewController: UITableViewDataSource {
         if section == 0 {
             return Configuration.TableView.chartNumberOfRow
         }
-        return self.contents.count
+        return self.contents.count > Configuration.TableView.maximumRow ? Configuration.TableView.maximumRow : self.contents.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

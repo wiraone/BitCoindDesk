@@ -23,5 +23,6 @@ struct Configuration {
         static let chartNumberOfRow = 1
         static let chartRowHeight = 300.0
         static let contentRowHeight = 200.0
+        static let maximumRow = 5
     }
 }
