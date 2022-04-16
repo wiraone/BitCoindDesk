@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19206" systemVersion="20G165" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Chart" representedClassName="Chart" syncable="YES" codeGenerationType="category">
+        <attribute name="createdAt" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="eur" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Price"/>
+        <relationship name="gbp" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Price"/>
+        <relationship name="location" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Location"/>
+        <relationship name="usd" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Price"/>
+    </entity>
+    <entity name="Location" representedClassName="Location" syncable="YES" codeGenerationType="category">
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="onChart" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Chart"/>
+    </entity>
+    <entity name="Price" representedClassName="Price" syncable="YES" codeGenerationType="category">
+        <attribute name="code" optional="YES" attributeType="String"/>
+        <attribute name="priceDescription" optional="YES" attributeType="String"/>
+        <attribute name="rate" optional="YES" attributeType="String"/>
+        <attribute name="rateFloat" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="symbol" optional="YES" attributeType="String"/>
+        <relationship name="onChart" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Chart"/>
+    </entity>
+    <elements>
+        <element name="Price" positionX="-63" positionY="-18" width="128" height="119"/>
+        <element name="Location" positionX="-54" positionY="18" width="128" height="74"/>
+        <element name="Chart" positionX="-36" positionY="27" width="128" height="119"/>
+    </elements>
+</model>

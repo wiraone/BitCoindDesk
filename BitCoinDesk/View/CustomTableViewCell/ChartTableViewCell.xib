@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="LSI-Ti-2Gk" customClass="ChartTableViewCell" customModule="BitCoinDesk" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LSI-Ti-2Gk" id="gOd-qd-oOn">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nHz-XE-rsq" customClass="LineChart" customModule="BitCoinDesk" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="nHz-XE-rsq" firstAttribute="leading" secondItem="gOd-qd-oOn" secondAttribute="leading" id="Ep5-Ky-sRT"/>
+                    <constraint firstAttribute="bottom" secondItem="nHz-XE-rsq" secondAttribute="bottom" id="KoG-0v-Jnx"/>
+                    <constraint firstItem="nHz-XE-rsq" firstAttribute="top" secondItem="gOd-qd-oOn" secondAttribute="top" id="OU3-xk-BOz"/>
+                    <constraint firstAttribute="trailing" secondItem="nHz-XE-rsq" secondAttribute="trailing" id="oSX-Q0-8kh"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="curvedlineChart" destination="nHz-XE-rsq" id="RS6-GS-tUA"/>
+            </connections>
+            <point key="canvasLocation" x="43" y="-234"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
