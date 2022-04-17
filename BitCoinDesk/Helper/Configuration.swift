@@ -11,7 +11,7 @@ struct Configuration {
     
     struct Time {
         // Used for time interval to automaticaly refresh data on background or foreground in seconds
-        static let refreshTime = 60.0
+        static let refreshTime = 3600.0
     }
     
     struct BaseURL {
