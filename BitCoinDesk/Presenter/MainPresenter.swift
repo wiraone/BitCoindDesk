@@ -112,9 +112,10 @@ class MainPresenter {
     func fetchDataFromCoreDataDB() -> [Chart] {
         var chartList: [Chart] = []
         let fetch: NSFetchRequest<Chart> = Chart.fetchRequest()
-        let sortDate = NSSortDescriptor.init(key: "createdAt", ascending: true)
+        let sortDate = NSSortDescriptor.init(key: "createdAt", ascending: false)
         let context = AppDelegate.instance.sharedContext()
         fetch.sortDescriptors = [sortDate]
+        fetch.fetchLimit = Configuration.TableView.maximumRow
 
         if let charts = try? context.fetch(fetch) {
 
@@ -122,7 +123,7 @@ class MainPresenter {
                 chartList.append(chart)
             }
         }
-        return chartList.suffix(Configuration.TableView.maximumRow)
+        return chartList.reversed()
     }
     
     /**

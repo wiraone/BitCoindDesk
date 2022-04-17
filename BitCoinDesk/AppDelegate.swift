@@ -44,18 +44,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {
+        NotificationCenter.default.post(name: .turnOffForegroundTimer,
+                                        object: self,
+                                        userInfo: nil)
+        
         cancelAllPandingBGTask()
         scheduleAppRefresh()
     }
     
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        NotificationCenter.default.post(name: .turnOnForegroundTimer,
+                                        object: self,
+                                        userInfo: nil)
+    }
+    
     // MARK: - Background Task
     private func registerBackgroundTaks() {
-        BGTaskScheduler.shared.register(forTaskWithIdentifier: "com.wirawan.fetcher", using: nil) { task in
-            //This task is cast with processing request (BGProcessingTask)
-            self.scheduleLocalNotification()
-        }
-        
-        BGTaskScheduler.shared.register(forTaskWithIdentifier: "com.wirawan.apprefresh", using: nil) { task in
+        BGTaskScheduler.shared.register(forTaskWithIdentifier: Configuration.Identifier.refreshNotificationIdentifier, using: nil) { task in
             //This task is cast with processing request (BGAppRefreshTask)
             self.scheduleLocalNotification()
             self.handleAppRefreshTask(task: task as! BGAppRefreshTask)
@@ -125,8 +130,8 @@ extension AppDelegate {
     }
     
     func scheduleAppRefresh() {
-        let request = BGAppRefreshTaskRequest(identifier: "com.wirawan.apprefresh")
-        request.earliestBeginDate = Date(timeIntervalSinceNow: 15) // App Refresh after 2 minute.
+        let request = BGAppRefreshTaskRequest(identifier: Configuration.Identifier.refreshNotificationIdentifier)
+        request.earliestBeginDate = Date(timeIntervalSinceNow: Configuration.Time.refreshTime)
         //Note :: EarliestBeginDate should not be set to too far into the future.
         do {
             try BGTaskScheduler.shared.submit(request)
@@ -140,6 +145,12 @@ extension AppDelegate {
         /*
          //AppRefresh Process
          */
+        NotificationCenter.default.post(name: .fetchCurrentPrice,
+                                        object: self,
+                                        userInfo: nil)
+        
+        scheduleAppRefresh()
+        
         task.expirationHandler = {
             //This Block call by System
             //Canle your all tak's & queues
@@ -179,8 +190,8 @@ extension AppDelegate {
         let notificationContent = UNMutableNotificationContent()
         
         // Configure Notification Content
-        notificationContent.title = "Bg"
-        notificationContent.body = "BG Notifications."
+        notificationContent.title = "BitCoinDesk"
+        notificationContent.body = "Hello bitcoin price has been updated please open the app."
         
         // Add Trigger
         let notificationTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 1.0, repeats: false)
@@ -192,6 +203,9 @@ extension AppDelegate {
         UNUserNotificationCenter.current().add(notificationRequest) { (error) in
             if let error = error {
                 print("Unable to Add Notification Request (\(error), \(error.localizedDescription))")
+            }
+            else {
+                print("success add local notification")
             }
         }
     }

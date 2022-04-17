@@ -39,6 +39,7 @@
 		04B97F9D2808F2AA00626652 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B97F9C2808F2AA00626652 /* Date+Extension.swift */; };
 		04B97F9F2808F41600626652 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B97F9E2808F41600626652 /* MainPresenter.swift */; };
 		04B97FA12809D7DF00626652 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B97FA02809D7DF00626652 /* Configuration.swift */; };
+		71A84D6F280BD21A00A8AB3A /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A84D6E280BD21A00A8AB3A /* Notification+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		04B97F9C2808F2AA00626652 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		04B97F9E2808F41600626652 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		04B97FA02809D7DF00626652 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		71A84D6E280BD21A00A8AB3A /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -272,6 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				04B97F9C2808F2AA00626652 /* Date+Extension.swift */,
+				71A84D6E280BD21A00A8AB3A /* Notification+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -425,6 +428,7 @@
 				04B97F952808E88500626652 /* ContentTableViewCell.swift in Sources */,
 				04B97F842808A74200626652 /* Price.swift in Sources */,
 				04365EDB2805F75500891692 /* BitCoinDesk.xcdatamodeld in Sources */,
+				71A84D6F280BD21A00A8AB3A /* Notification+Extension.swift in Sources */,
 				04B97F9A2808ECA800626652 /* Content.swift in Sources */,
 				04B97F862808ABD900626652 /* Location.swift in Sources */,
 				04B97F8D2808ACF500626652 /* Time.swift in Sources */,
@@ -611,16 +615,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Z86SS88S7V;
+				DEVELOPMENT_TEAM = 65TN39WV65;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BitCoinDesk/Info.plist;
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "BitCoinDesk requests Always authorization.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Your app requests Always authorization.";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "BitCoinDesk requests Always authorization.";
 				INFOPLIST_KEY_NSLocationUsageDescription = "BitCoinDesk requests Always authorization.";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "BitCoinDesk requests’When In Use’ authorization or ‘Always’ authorization.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your app requests’When In Use’ authorization or ‘Always’ authorization.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -634,9 +638,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = id.tigaraksaep.and;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gotoblink.blinkdriver-internal";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "Go To Blink Driver Internal";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -654,10 +658,10 @@
 				DEVELOPMENT_TEAM = Z86SS88S7V;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BitCoinDesk/Info.plist;
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "BitCoinDesk requests Always authorization.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Your app requests Always authorization.";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "BitCoinDesk requests Always authorization.";
 				INFOPLIST_KEY_NSLocationUsageDescription = "BitCoinDesk requests Always authorization.";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "BitCoinDesk requests’When In Use’ authorization or ‘Always’ authorization.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your app requests’When In Use’ authorization or ‘Always’ authorization.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -671,7 +675,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = id.tigaraksaep.and;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gotoblink.blinkdriver-internal";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;

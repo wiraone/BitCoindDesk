@@ -38,6 +38,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         setupTitleLabel()
         setupCustomTableViewCell()
+        registerForNotifications()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,6 +50,30 @@ class ViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.timer.invalidate()
+    }
+    
+    func registerForNotifications() {
+        NotificationCenter.default.addObserver(
+          forName: .fetchCurrentPrice,
+          object: nil,
+          queue: nil) { [weak self] (notification) in
+              self?.loadingView.isHidden = false
+              self?.presenter.fetchCurrentPriceFromAPI()
+        }
+        
+        NotificationCenter.default.addObserver(
+          forName: .turnOffForegroundTimer,
+          object: nil,
+          queue: nil) { [weak self] (notification) in
+              self?.timer.invalidate()
+        }
+        
+        NotificationCenter.default.addObserver(
+          forName: .turnOnForegroundTimer,
+          object: nil,
+          queue: nil) { [weak self] (notification) in
+              self?.setupForegroundRefreshTimer()
+        }
     }
     
     private func setupTitleLabel() {

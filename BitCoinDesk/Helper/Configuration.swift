@@ -11,7 +11,7 @@ struct Configuration {
     
     struct Time {
         // Used for time interval to automaticaly refresh data on background or foreground in seconds
-        static let refreshTime = 3600.0
+        static let refreshTime = 60.0
     }
     
     struct BaseURL {
@@ -24,5 +24,11 @@ struct Configuration {
         static let chartRowHeight = 300.0
         static let contentRowHeight = 200.0
         static let maximumRow = 5
+    }
+    
+    struct Identifier {
+        static let refreshNotificationIdentifier = "com.wirawan.apprefresh"
+        static let foregroundTimerOffNotificationIdentifier = "com.wirawan.foreground.timer.off"
+        static let foregroundTimerOnNotificationIdentifier = "com.wirawan.foreground.timer.on"
     }
 }
